@@ -1,0 +1,36 @@
+program TriInsertion;
+
+const
+  N = 5; // Taille du tableau
+
+var
+  arr: array[0..N-1] of Integer; // Tableau à trier
+  i, j, element_a_inserer: Integer;
+
+begin
+  // Remplissage du tableau avec des valeurs non triées
+  arr[0] := 12;
+  arr[1] := 11;
+  arr[2] := 13;
+  arr[3] := 5;
+  arr[4] := 6;
+
+  // Algorithme de tri par insertion
+  for i := 1 to N-1 do
+  begin
+    element_a_inserer := arr[i];
+    j := i - 1;
+
+    while (j >= 0) and (element_a_inserer < arr[j]) do
+    begin
+      arr[j + 1] := arr[j];
+      j := j - 1;
+    end;
+
+    arr[j + 1] := element_a_inserer;
+  end;
+
+  // Affichage du tableau trié
+  for i := 0 to N-1 do
+    Write(arr[i], ' ');
+end.
